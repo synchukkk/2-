@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFlow - Додаток для перегляду новин та закладок</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Заголовок -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <h1 class="logo">📰 NewsFlow</h1>
+                <nav class="nav">
+                    <button class="nav-btn active" data-view="news">🏠 Новини</button>
+                    <button class="nav-btn" data-view="bookmarks">⭐ Закладки</button>
+                    <button class="nav-btn refresh-btn" title="Оновити новини">🔄</button>
+                </nav>
+            </div>
+            <div class="header-search">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="🔍 Пошук новин..."
+                    autocomplete="off"
+                >
+            </div>
+        </div>
+    </header>
+
+    <!-- Основний контейнер -->
+    <div class="container">
+        <!-- Сайдбар -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">📊 Статистика</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Всього новин:</span>
+                        <span class="stat-value" id="totalNewsCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Закладок:</span>
+                        <span class="stat-value" id="bookmarkCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">⭐ Останні закладки</h3>
+                <div class="recent-bookmarks" id="recentBookmarks">
+                    <p class="empty-message">Немає закладок</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">⚙️ Параметри</h3>
+                <div class="sort-controls">
+                    <label for="sortSelect" class="sort-label">Сортування:</label>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="date">Нові першими</option>
+                        <option value="title">За назвою</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <!-- Вид новин -->
+            <div id="newsView" class="view active">
+                <div class="news-list" id="newsList">
+                    <!-- Новини буде тут -->
+                </div>
+            </div>
+
+            <!-- Вид закладок -->
+            <div id="bookmarksView" class="view">
+                <div class="bookmarks-list" id="bookmarksList">
+                    <!-- Закладки буде тут -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Тосту повідомлення (опціонально) -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
